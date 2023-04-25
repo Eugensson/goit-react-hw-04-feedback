@@ -5,7 +5,7 @@ import {
   StatisticValue,
 } from 'components/Statistics/Statistics.styled';
 
-function Statistics({ good, neutral, bad, total, positivePercentage }) {
+function Statistics({ good, neutral, bad, total, positiveFeedback }) {
   return (
     <StatisticContainer>
       <StatisticTitle>
@@ -26,7 +26,7 @@ function Statistics({ good, neutral, bad, total, positivePercentage }) {
       </StatisticTitle>
       <StatisticTitle>
         Positive feedback:
-        <StatisticValue>{positivePercentage}%</StatisticValue>
+        <StatisticValue>{positiveFeedback}%</StatisticValue>
       </StatisticTitle>
     </StatisticContainer>
   );
@@ -37,7 +37,7 @@ Statistics.propTypes = {
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  positivePercentage: PropTypes.number.isRequired,
+  positiveFeedback: PropTypes.number.isRequired,
 };
 
 export default Statistics;
