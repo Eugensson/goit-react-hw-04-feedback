@@ -10,31 +10,19 @@ import {
 import { Container } from './App.styled';
 
 const App = () => {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
 
   const handleFeedback = type => {
-    switch (type) {
-      case 'good':
-        setGood(prevState => prevState + 1);
-        break;
-      case 'neutral':
-        setNeutral(prevState => prevState + 1);
-        break;
-      case 'bad':
-        setBad(prevState => prevState + 1);
-        break;
-      default:
-        break;
-    }
+    setFeedback(prevState => ({ ...prevState, [type]: prevState[type] + 1 }));
   };
 
   const countTotalFeedback = () => {
+    const { good, neutral, bad } = feedback;
     return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
+    const { good } = feedback;
     const total = countTotalFeedback();
     return total === 0 ? 0 : Math.round((good / total) * 100);
   };
@@ -53,9 +41,9 @@ const App = () => {
       <Section title="Statistic">
         {totalFeedback > 0 ? (
           <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
+            good={feedback.good}
+            neutral={feedback.neutral}
+            bad={feedback.bad}
             total={totalFeedback}
             positiveFeedback={positiveFeedback}
           />
