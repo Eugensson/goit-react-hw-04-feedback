@@ -5,7 +5,7 @@ import {
   StatisticValue,
 } from 'components/Statistics/Statistics.styled';
 
-function Statistics({ good, neutral, bad, total, positiveFeedback }) {
+const Statistics = ({ good, neutral, bad, total, positiveFeedback }) => {
   return (
     <StatisticContainer>
       <StatisticTitle>
@@ -30,7 +30,7 @@ function Statistics({ good, neutral, bad, total, positiveFeedback }) {
       </StatisticTitle>
     </StatisticContainer>
   );
-}
+};
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,

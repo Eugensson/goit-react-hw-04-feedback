@@ -6,7 +6,6 @@ import {
   React,
   Notification,
 } from 'components/App/index';
-
 import { Container } from './App.styled';
 
 const App = () => {
