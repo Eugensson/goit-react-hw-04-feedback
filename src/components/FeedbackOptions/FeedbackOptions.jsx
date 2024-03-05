@@ -1,27 +1,38 @@
 import PropTypes from 'prop-types';
-import {
-  FeedbackContainer,
-  FeedbackButton,
-} from 'components/FeedbackOptions/FeedbackOptions.styled';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+import { BsEmojiSmile, BsEmojiNeutral, BsEmojiFrown } from "react-icons/bs";
+import { IconContext } from "react-icons";
+
+import { Wrapper, Btn } from './FeedbackOptions.styled';
+
+
+const FeedbackOptions = ({options, onLeaveFeedback}) => {
   return (
-    <FeedbackContainer>
-      <FeedbackButton type="button" onClick={() => onLeaveFeedback(options[0])}>
+    <Wrapper>  
+      <Btn type="button" onClick={() => onLeaveFeedback(options[0])}>
         Good
-      </FeedbackButton>
-      <FeedbackButton type="button" onClick={() => onLeaveFeedback(options[1])}>
+        <IconContext.Provider value={{ size: '20px' }}>
+          <BsEmojiSmile />
+        </IconContext.Provider>
+      </Btn>
+      <Btn type="button" onClick={() => onLeaveFeedback(options[1])}>
         Neutral
-      </FeedbackButton>
-      <FeedbackButton type="button" onClick={() => onLeaveFeedback(options[2])}>
+        <IconContext.Provider value={{ size: '20px' }}>
+          <BsEmojiNeutral />
+        </IconContext.Provider>
+      </Btn>
+      <Btn type="button" onClick={() => onLeaveFeedback(options[2])}>
         Bad
-      </FeedbackButton>
-    </FeedbackContainer>
-  );
-};
+        <IconContext.Provider value={{ size: '20px' }}>
+          <BsEmojiFrown />
+        </IconContext.Provider>
+      </Btn>
+    </Wrapper>
+  )
+}
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 

@@ -1,36 +1,28 @@
 import PropTypes from 'prop-types';
-import {
-  StatisticContainer,
-  StatisticTitle,
-  StatisticValue,
-} from 'components/Statistics/Statistics.styled';
+
+import { Wrapper, Title, Value } from './Statistics.styled';
 
 const Statistics = ({ good, neutral, bad, total, positiveFeedback }) => {
-  return (
-    <StatisticContainer>
-      <StatisticTitle>
-        Good:
-        <StatisticValue>{good}</StatisticValue>
-      </StatisticTitle>
-      <StatisticTitle>
-        Neutral:
-        <StatisticValue>{neutral}</StatisticValue>
-      </StatisticTitle>
-      <StatisticTitle>
-        Bad:
-        <StatisticValue>{bad}</StatisticValue>
-      </StatisticTitle>
-      <StatisticTitle>
-        Total:
-        <StatisticValue>{total}</StatisticValue>
-      </StatisticTitle>
-      <StatisticTitle>
-        Positive feedback:
-        <StatisticValue>{positiveFeedback}%</StatisticValue>
-      </StatisticTitle>
-    </StatisticContainer>
-  );
-};
+    return (        
+        <Wrapper>
+            <Title>Good:
+                <Value>{good}</Value>
+            </Title>
+            <Title>Neutral:
+                <Value>{neutral}</Value>                
+            </Title>
+            <Title>Bad:
+                <Value>{bad}</Value>                
+            </Title>
+            <Title>Total:
+                <Value>{total}</Value>                
+            </Title>
+            <Title>Positive feedback:
+                <Value>{positiveFeedback}%</Value>                
+            </Title>
+        </Wrapper>
+    )
+}
 
 Statistics.propTypes = {
   good: PropTypes.number.isRequired,

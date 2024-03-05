@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { SectionTitle } from 'components/Section/Section.styled';
+
+import { Wrapper, Title } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    <div>
-      <SectionTitle>{title}</SectionTitle>
-      {children}
-    </div>
-  );
-};
+    <Wrapper>
+          <Title>{title}</Title>
+          {children}
+    </Wrapper>
+  )
+}
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
